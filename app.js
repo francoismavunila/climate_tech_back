@@ -3,11 +3,11 @@ const app = express();
 const port = process.env.PORT ||3000;
 const cors = require('cors')
 const axios = require('axios');
-//require('dotenv').config();
+require('dotenv').config();
 
 // Define routes
 
-app.use(cors())
+app.use(cors({credentials: true,origin: "*"}));
 app.get('/', (req, res) => {
   res.send('Hello, World!');
 });
