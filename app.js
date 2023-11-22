@@ -98,8 +98,8 @@ app.get('/api/data/spray',(req,res)=>{
   console.log(long)
 
   let data = JSON.stringify({
-    "lat": 5.65178,
-    "lon": 5
+    "lat": lat,
+    "lon": long
   });
 
   let config = {
