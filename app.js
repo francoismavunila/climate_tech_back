@@ -22,7 +22,7 @@ app.get('/api/data/short', (req, res) => {
     const formattedDate = currentDate.toISOString().slice(0, 10);
     console.log(formattedDate)
     const futureDate = new Date(currentDate);
-    futureDate.setDate(futureDate.getDate() + 6);
+    futureDate.setDate(futureDate.getDate() + 5);
     const formattedFutureDate = futureDate.toISOString().slice(0, 10);
     console.log(formattedFutureDate)
     let data = JSON.stringify({
