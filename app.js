@@ -90,6 +90,40 @@ app.get('/api/data/long', (req, res) => {
 
 })
 
+
+app.get('/api/data/spray',(req,res)=>{
+  var lat = parseFloat(req.query.lat)
+  var long = parseFloat(req.query.long)
+  console.log(lat)
+  console.log(long)
+
+  let data = JSON.stringify({
+    "lat": 5.65178,
+    "lon": 5
+  });
+
+  let config = {
+    method: 'post',
+    maxBodyLength: Infinity,
+    url: 'https://b2b.ignitia.se/api/spraying-advisory',
+    headers: { 
+      'auth-key': process.env.AUTH_KEY_SPRAY, 
+      'Content-Type': 'application/json'
+    },
+    data : data
+  };
+
+  axios.request(config)
+  .then((response) => {
+    console.log(JSON.stringify(response.data));
+    res.status(200).json(JSON.stringify(response.data))
+  })
+  .catch((error) => {
+    console.log(error);
+
+  });
+
+})
 // Start the server
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
